@@ -62,5 +62,4 @@ public class Products {
 //
 //    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
 //    private Set<CartItems> cartItems = new HashSet<>();
-
 }
