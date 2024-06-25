@@ -1,3 +1,13 @@
 1. Создать Entity сущности для отображения таблиц БД из схемы БД,
 которая показана на папке \resources\DB.png.
 2*. По возможности для всех таблиц БД создать Entity сущности.
+
+3. Доп.информация:
+   https://javarush.com/quests/lectures/questspringboot.level03.lecture02
+   https://javarush.com/groups/posts/1982-jpa-entities--db-relationships
+   https://habr.com/ru/articles/265061/
+
+  Книга: Spring 5 для профессионалов, Юлиана Козмина, Кларенс Хо, Крис Шеффер
+  стр.489-508, строить связи, т.к. показано здесь в книге - это точно работоспособный код.
+
+  Советы из интернета не всегда работают. ;)
