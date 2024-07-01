@@ -23,11 +23,11 @@ public class OrderItems {
     @Column(name = "PriceAtPurchase")
     private double priceAtPurchase;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "OrderID")
-//    private Orders order;
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "ProductID")
-//    private Products product;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "OrderID")
+    private Orders order;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ProductID")
+    private Products product;
 }

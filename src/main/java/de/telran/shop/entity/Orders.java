@@ -40,10 +40,10 @@ public class Orders {
     @Column(name = "UpdatedAt")
     private Timestamp updatedAt;
 
-//    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-//    private Set<OrderItems> orderItems = new HashSet<>();
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "UserID")
-//    private Users user;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private Set<OrderItems> orderItems = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "UserID")
+    private Users user;
 }

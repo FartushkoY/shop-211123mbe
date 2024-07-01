@@ -38,10 +38,10 @@ public class Users {
     @Enumerated(EnumType.STRING)
     @Column(name = "Role")
     private Role role;
-//
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-//    private Set<Orders> orders = new HashSet<>();
-//
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Orders> orders = new HashSet<>();
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Favorites> favorites = new HashSet<>();
 

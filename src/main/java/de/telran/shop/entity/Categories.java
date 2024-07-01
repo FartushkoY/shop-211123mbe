@@ -19,12 +19,12 @@ public class Categories {
     @Id
     @Column(name = "CategoryID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long categoryID;
+    private Long categoryID;
 
     @Column(name = "Name")
     private String name;
 
-//    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-//    private Set<Products> products = new HashSet<>();
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private Set<Products> products = new HashSet<>();
 
 }

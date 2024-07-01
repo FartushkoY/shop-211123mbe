@@ -32,8 +32,8 @@ public class Products {
     @Column(name = "Price")
     private Double price;
 
-    @Column(name = "CategoryID")
-    private Integer categoryID;
+//    @Column(name = "CategoryID")
+//    private Integer categoryID;
 
     @Column(name = "ImageURL")
     private String imageURL;
@@ -47,19 +47,16 @@ public class Products {
     @Column(name = "UpdatedAt")
     private Timestamp updatedAt;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "CategoryID")
-//    private Categories category;
-//
-//    @OneToMany(mappedBy = "product")
-//    private Set<OrderItems> orderItem = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-//    private Set<Favorites> favorites = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-//    private Set<OrderItems> orderItems = new HashSet<>();
-//
-//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-//    private Set<CartItems> cartItems = new HashSet<>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "CategoryID")
+    private Categories category;
+
+    @OneToMany(mappedBy = "product")
+    private Set<OrderItems> orderItem = new HashSet<>();
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<Favorites> favorites = new HashSet<>();
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+    private Set<CartItems> cartItems = new HashSet<>();
 }
