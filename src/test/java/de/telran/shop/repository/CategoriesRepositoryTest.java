@@ -13,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DataJpaTest
-//@RequiredArgsConstructor
 class CategoriesRepositoryTest {
 
     @Autowired
@@ -77,16 +76,15 @@ class CategoriesRepositoryTest {
         assertNotNull(categoriesNewActual.getCategoryID());
 
         // проверяем чтение данных (база не пустая)
-        List<Categories> categoriesListActual = categoriesRepositoryTest.findAll();
-        assertNotNull(categoriesListActual);
-        assertTrue(categoriesListActual.size()>0);
-        assertEquals(categoriesListActual.size(), 1);
+        Categories categoriesActual = categoriesRepositoryTest.findById(categoriesNewActual.getCategoryID()).orElse(null);
+        assertNotNull(categoriesActual);
+        assertEquals(categoriesNewActual.getCategoryID(), categoriesActual.getCategoryID());
 
         //удаляем строку
         categoriesRepositoryTest.delete(categoriesNewActual);
 
         // проверяем чтение данных что база пустая
-        categoriesListActual = categoriesRepositoryTest.findAll();
+        List<Categories> categoriesListActual = categoriesRepositoryTest.findAll();
         assertNotNull(categoriesListActual);
         assertFalse(categoriesListActual.size()>0);
         assertEquals(categoriesListActual.size(), 0);
