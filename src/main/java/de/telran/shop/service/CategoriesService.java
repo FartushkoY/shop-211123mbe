@@ -6,6 +6,7 @@ import de.telran.shop.repository.CategoriesRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -40,4 +41,31 @@ public class CategoriesService {
         CategoriesDto categoriesDto = new CategoriesDto(categories.getCategoryID(), categories.getName());
         return categoriesDto;
     }
+
+    public CategoriesDto createCategories(@RequestBody CategoriesDto categoriesDto) {
+        Categories categories = new Categories(null, categoriesDto.getName(), null);
+        Categories categoriesReturn = categoriesRepository.save(categories);
+        CategoriesDto categoriesDtoReturn = new CategoriesDto(categoriesReturn.getCategoryID(), categoriesReturn.getName());
+        return categoriesDtoReturn;
+    }
+
+    public CategoriesDto updateCategories(CategoriesDto categoriesDto) {
+        Categories categories = new Categories(categoriesDto.getCategoryID(), categoriesDto.getName(), null);
+        Categories categoriesReturn = categoriesRepository.save(categories);
+        CategoriesDto categoriesDtoReturn = new CategoriesDto(categoriesReturn.getCategoryID(), categoriesReturn.getName());
+        return categoriesDtoReturn;
+    }
+
+    public void deleteCategories(Long id) {
+        //categoriesRepository.deleteById(id);
+        Categories categories = categoriesRepository.findById(id).orElse(null);
+        if(categories==null) {
+            throw new RuntimeException("Нету такого объекта с Id = "+id);
+        } else {
+            categoriesRepository.delete(categories);
+        }
+
+    }
+
+
 }

@@ -4,11 +4,9 @@ import de.telran.shop.dto.CategoriesDto;
 import de.telran.shop.repository.CategoriesRepository;
 import de.telran.shop.service.CategoriesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,25 @@ public class CategoriesController {
     public CategoriesDto getCategoriesById(@PathVariable Long id) {
         return categoriesService.findByIdService(id);
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
+    public CategoriesDto createCategories(@RequestBody CategoriesDto categoriesDto) {
+        return categoriesService.createCategories(categoriesDto);
+    }
+
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping
+    public CategoriesDto updateCategories(@RequestBody CategoriesDto categoriesDto) {
+        return categoriesService.updateCategories(categoriesDto);
+    }
+
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping(value = "/{id}")
+    public void deleteCategories(@PathVariable Long id) {
+        categoriesService.deleteCategories(id);
+    }
+
 
 }
