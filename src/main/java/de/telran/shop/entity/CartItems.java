@@ -1,9 +1,13 @@
 package de.telran.shop.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Getter
+@Setter
 @Entity
 @Table(name = "CartItems")
 public class CartItems {
