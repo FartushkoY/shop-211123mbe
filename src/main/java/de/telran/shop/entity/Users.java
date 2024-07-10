@@ -3,20 +3,20 @@ package de.telran.shop.entity;
 
 import de.telran.shop.entity.enums.Role;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+
 @Entity
 @Table(name = "Users")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@Getter
+@Setter
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
